@@ -49,6 +49,7 @@ function App() {
   };
 
   const completedTodosCount = todos.filter((todo) => todo.isCompleted).length;
+  const todoCount = todos.length;
 
   return (
     <div className="py-4">
@@ -56,6 +57,7 @@ function App() {
         <p className="lead">Todo App</p>
         <TodoForm addTodo={addTodoHandler} />
         <TodoActions
+          todosExists={todoCount > 0}
           completedTodosExists={completedTodosCount > 0}
           deleteAllTodos={deleteAllTodosHandler}
           deleteCompletedTodos={deleteCompletedTodosHandler}

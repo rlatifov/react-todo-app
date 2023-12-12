@@ -4,11 +4,13 @@ import Button from "../UI/Button";
 const TodoActions = ({
   deleteAllTodos,
   deleteCompletedTodos,
+  todosExists,
   completedTodosExists,
 }) => {
   return (
     <div className="d-flex justify-content-end">
       <Button
+        disabled={!todosExists}
         className="btn-secondary mx-2"
         title="Reset todos"
         onClick={deleteAllTodos}
