@@ -10,8 +10,7 @@ function App() {
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
-    const initialTodos = JSON.parse(localStorage.getItem("todos")) || [];
-    setTodos(initialTodos);
+    setTodos(JSON.parse(localStorage.getItem("todos")) || []);
   }, []);
 
   useEffect(() => {
@@ -57,6 +56,7 @@ function App() {
         <p className="lead">Todo App</p>
         <TodoForm addTodo={addTodoHandler} />
         <TodoActions
+          completedTodosExists={completedTodosCount > 0}
           deleteAllTodos={deleteAllTodosHandler}
           deleteCompletedTodos={deleteCompletedTodosHandler}
         />

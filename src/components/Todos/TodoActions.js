@@ -1,7 +1,11 @@
 import { RiDeleteBin2Fill, RiRefreshFill } from "react-icons/ri";
 import Button from "../UI/Button";
 
-const TodoActions = ({ deleteAllTodos, deleteCompletedTodos }) => {
+const TodoActions = ({
+  deleteAllTodos,
+  deleteCompletedTodos,
+  completedTodosExists,
+}) => {
   return (
     <div className="d-flex justify-content-end">
       <Button
@@ -13,6 +17,7 @@ const TodoActions = ({ deleteAllTodos, deleteCompletedTodos }) => {
         Delete all todos
       </Button>
       <Button
+        disabled={!completedTodosExists}
         className="btn-secondary ms-2"
         title="Delete completed todos"
         onClick={deleteCompletedTodos}
